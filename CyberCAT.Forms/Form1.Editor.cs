@@ -29,6 +29,7 @@ namespace CyberCAT.Forms
             { typeof(FactsDB), typeof(PropertyEditControl) },
             { typeof(ItemDropStorage), typeof(PropertyEditControl) },
             { typeof(ItemDropStorageManager), typeof(PropertyEditControl) },
+            { typeof(GenericUnknownStruct), typeof(PropertyEditControl) },
         };
 
         private void savbinCompressedToolStripMenuItem_Click(object sender, EventArgs e)
