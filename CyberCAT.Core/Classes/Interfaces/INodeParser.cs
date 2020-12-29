@@ -9,10 +9,9 @@ namespace CyberCAT.Core.Classes.Interfaces
 {
     public interface INodeParser
     {
-        string DisplayName { get; }
-        Guid Guid { get; }
-        string ParsableNodeName { get; }
-
+        string DisplayName { get;}
+        Guid Guid { get;}
+        List<string> ParsableNodeNames { get;}
         object Read(NodeEntry node, BinaryReader reader, List<INodeParser> parsers);
         byte[] Write(NodeEntry node, List<INodeParser> parsers, int parentHeaderSize);
     }

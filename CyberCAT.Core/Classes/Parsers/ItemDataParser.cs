@@ -15,13 +15,16 @@ namespace CyberCAT.Core.Classes.Parsers
     {
         public string ParsableNodeName { get; }
 
-        public string DisplayName { get; }
+        public List<string> ParsableNodeNames { get; private set; }
 
         public Guid Guid { get; }
 
         public ItemDataParser()
         {
-            ParsableNodeName = Constants.NodeNames.ITEM_DATA;
+            ParsableNodeNames = new List<string>
+            {
+                Constants.NodeNames.ITEM_DATA
+            };
             DisplayName = "ItemData Parser";
             Guid = Guid.Parse("{B05D52F2-44B5-4122-AB5D-7B84E99C784C}");
         }
