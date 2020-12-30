@@ -103,6 +103,7 @@
     <Compile Include="Classes\SaveFileMetaInformation.cs" />
     <Compile Include="Classes\TweakDbId.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Enums\DumpedEnums.cs" />
     <Compile Include="Enums\SaveFileSectionType.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
