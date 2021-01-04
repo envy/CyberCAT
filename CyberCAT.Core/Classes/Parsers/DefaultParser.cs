@@ -15,7 +15,7 @@ namespace CyberCAT.Core.Classes.Parsers
     {
         public string DisplayName { get; }
         public Guid Guid { get; }
-        public List<string> ParsableNodeName { get; }
+        public string ParsableNodeName { get; }
 
         public object Read(NodeEntry node, BinaryReader reader, List<INodeParser> parsers)
         {
@@ -47,7 +47,7 @@ namespace CyberCAT.Core.Classes.Parsers
                         var first = true;
                         foreach (var child in node.Children)
                         {
-                            var parser = parsers.FirstOrDefault(p => p.ParsableNodeNames.Contains(child.Name));
+                            var parser = parsers.FirstOrDefault(p => p.ParsableNodeName == child.Name);
                             if (parser == null)
                             {
                                 parser = new DefaultParser();

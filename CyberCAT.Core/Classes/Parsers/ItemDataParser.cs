@@ -15,7 +15,7 @@ namespace CyberCAT.Core.Classes.Parsers
     {
         public string ParsableNodeName { get; }
 
-        public string ParsableNodeName { get; private set; }
+        public string DisplayName { get; }
 
         public Guid Guid { get; }
 

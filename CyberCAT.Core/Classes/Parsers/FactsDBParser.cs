@@ -12,7 +12,7 @@ namespace CyberCAT.Core.Classes.Parsers
 {
     public class FactsDBParser : INodeParser
     {
-        public string ParsableNodeName { get; private set; }
+        public string ParsableNodeName { get;  }
 
         public string DisplayName { get; }
 
@@ -51,7 +51,7 @@ namespace CyberCAT.Core.Classes.Parsers
                     writer.Write(node.Id);
                     writer.Write(data.FactsTableCount);
 
-                    var parser = parsers.FirstOrDefault(p => p.ParsableNodeName==Constants.NodeNames.FACTS_TABLE);
+                    var parser = parsers.FirstOrDefault(p => p.ParsableNodeName == Constants.NodeNames.FACTS_TABLE);
                     Debug.Assert(parser != null);
 
                     var first = true;

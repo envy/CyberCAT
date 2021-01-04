@@ -11,11 +11,11 @@ namespace CyberCAT.Core.Classes.Parsers
 {
     public class GameSessionConfigParser : INodeParser
     {
-        public string ParsableNodeName { get; private set; }
+        public string ParsableNodeName { get; }
 
-        public string DisplayName { get; private set; }
+        public string DisplayName { get; }
 
-        public Guid Guid { get; private set; }
+        public Guid Guid { get; }
 
         public GameSessionConfigParser()
         {
@@ -25,10 +25,6 @@ namespace CyberCAT.Core.Classes.Parsers
         }
         public object Read(NodeEntry node, BinaryReader reader, List<INodeParser> parsers)
         {
-            if (ParsableNodeName!=node.Name)
-            {
-                throw new Exception("Unexpected SectionName");
-            }
             var result = new GameSessionConfig();
             reader.BaseStream.Position = node.Offset;
             reader.Skip(4);//Skip the ID
