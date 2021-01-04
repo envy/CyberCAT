@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CyberCAT.Core.Classes.Mapping;
 using CyberCAT.Core.Classes.NodeRepresentations;
 using Newtonsoft.Json;
 
@@ -79,12 +80,20 @@ namespace CyberCAT.Core.Classes
             Guid = Guid.NewGuid();
             FlatNodes = new List<NodeEntry>();
             Nodes = new List<NodeEntry>();
+
+            MappingHelper.LoadDumpedClasses();
+            MappingHelper.LoadDumpedEnums();
         }
         public SaveFile()
         {
             FlatNodes = new List<NodeEntry>();
             Nodes = new List<NodeEntry>();
+
+            MappingHelper.LoadDumpedClasses();
+            MappingHelper.LoadDumpedEnums();
+
             _parsers = new List<INodeParser>();
+
             var interfaceType = typeof(INodeParser);
             var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(s => s.GetTypes()).Where(p => interfaceType.IsAssignableFrom(p) && p.IsClass && p != typeof(DefaultParser));
             foreach (var type in types)
@@ -93,6 +102,7 @@ namespace CyberCAT.Core.Classes
                 _parsers.Add(instance);
             }
         }
+
         public void LoadPCSaveFile(Stream inputStream)
         {
             BeginLoading(inputStream);
